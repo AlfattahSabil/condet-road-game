@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+  #menu,
+  #game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+    color: white;
+  }
+  
+  #game-container {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background-image: url('images/jalan-raya.png'); /* Gambar jalan */
+    background-size: 100% 200%; /* Gambar jalan lebih besar, memastikan kelancaran */
+    background-repeat: repeat-y; /* Mengulang gambar secara vertikal */
+    animation: move-road 2s linear infinite; /* Durasi cepat dengan linear untuk transisi yang mulus */
+    overflow: hidden;
+  }
+  
+  /* Keyframes untuk menggerakkan gambar jalan */
+  @keyframes move-road {
+    0% {
+      background-position: 0 0; /* Posisi awal gambar di bagian atas */
+    }
+    100% {
+      background-position: 0 -200%; /* Posisi akhir gambar bergeser lebih jauh */
+    }
+  }
+  
+  
+  #background-music{
+    display: none;
+  }
+
+  #player {
+    position: absolute;
+    bottom: 10px;
+    left: 130px;
+    width: 50px; /* Ukuran gambar motor */
+    height: 80px; /* Ukuran gambar motor */
+    background-image: url('images/motor.png'); /* Gambar motor */
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  #player-hitbox {
+    position: absolute;
+    top: 30px; /* Posisikan hitbox di dalam motor */
+    left: 13px; /* Posisikan hitbox di dalam motor */
+    width: 10px; /* Ukuran hitbox yang lebih kecil */
+    height: 20px; /* Ukuran hitbox yang lebih kecil */
+  }
+  
+  .obstacle {
+    position: absolute;
+    width: 50px; /* Ukuran gambar mobil */
+    height: 80px; /* Ukuran gambar mobil */
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  #score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+  }
+  
+  #game-over {
+    text-align: center;
+  }
+  
+  #game-over button {
+    background-color: #f44336;
+    width: 150px;
+  }
+
+
+@media screen and (max-width: 480px) {
+  #menu h1{
+    font-size: 28px;
+  }
+}

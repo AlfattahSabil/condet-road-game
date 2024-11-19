@@ -1,0 +1,10 @@
+body{
+    background-image: url('/images/condet.jpg');
+}
+
+@media screen and (max-width: 480px) {
+    body{
+        background-image: url('/images/condet.jpg');
+        background-position: -310px 0;
+    }
+}

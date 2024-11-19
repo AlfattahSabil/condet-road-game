@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Over</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Audio Background -->
+  <audio id="background-music" loop>
+    <source src="Game Over Sound Effects High Quality.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="game-over">
+    <h2>Game Over</h2>
+    <p id="final-score"></p>
+    <button id="restart-button" onclick="restartGame()">Restart</button>
+    <button id="main-menu-button" onclick="mainMenu()">Main Menu</button>
+  </div>
+
+  <script>
+    // Mendapatkan parameter 'score' dari URL (game.html ke gameover.html)
+    const params = new URLSearchParams(window.location.search);
+    const finalScore = params.get('score') || 0;
+    document.getElementById('final-score').textContent = `Your final score is: ${finalScore}`;
+
+    // Mendapatkan elemen audio
+    const backgroundMusic = document.getElementById('background-music');
+
+    // Mulai memutar musik ketika halaman Game Over dimuat
+    window.onload = function() {
+      backgroundMusic.play(); // Memainkan musik saat halaman Game Over dimuat
+    };
+
+    // Fungsi untuk restart game dan menghentikan musik
+    function restartGame() {
+      backgroundMusic.pause(); // Menghentikan musik saat restart
+      backgroundMusic.currentTime = 0; // Mengatur musik kembali ke awal
+      window.location.href = "game.html"; // Mengarahkan ke halaman game
+    }
+
+    // Fungsi untuk kembali ke Main Menu dan menghentikan musik
+    function mainMenu() {
+      backgroundMusic.pause(); // Menghentikan musik saat kembali ke Main Menu
+      backgroundMusic.currentTime = 0; // Mengatur musik kembali ke awal
+      window.location.href = "index.html"; // Mengarahkan ke halaman Main Menu
+    }
+  </script>
+</body>
+</html>

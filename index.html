@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Condet Road Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <audio id="background-music" loop controls>
+      <source src="Minecraft OST - Pigstep.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <div id="menu">
+      <h1>Condet Road Game</h1>
+      <button id="start-button" onclick="startGame()">Mulai</button>
+    </div>
+
+    <script>
+      const backgroundMusic = document.getElementById("background-music");
+
+      // Fungsi untuk memulai game dan menghentikan musik
+      function startGame() {
+        // Stop background music saat tombol Mulai diklik
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0; // Reset musik ke awal
+
+        // Arahkan ke halaman game
+        window.location.href = "game.html";
+      }
+
+      // Memulai musik saat halaman dimuat
+      window.onload = function () {
+        backgroundMusic.play(); // Memainkan musik secara otomatis ketika halaman dibuka
+      };
+    </script>
+  </body>
+</html>
